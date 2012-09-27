@@ -1,0 +1,7 @@
+---
+rpm_build_host: 'rpm-builder.puppetlabs.lan'
+deb_build_host: 'builder-deb.acctest.dc1.puppetlabs.net'
+osx_build_host: 'osx-builder.puppetlabs.lan'
+tarball_path: '/opt/downloads/mcollective'
+dmg_path: '/opt/downloads/mac'
+
