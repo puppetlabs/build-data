@@ -1,4 +1,5 @@
 ---
-rpm_build_host: 'rpm-builder.puppetlabs.lan'
+rpm_build_host: 'verne-builder-1.acctest.dc1.puppetlabs.net'
 deb_build_host: 'wheezy-builder-2.acctest.dc1.puppetlabs.net'
 osx_build_host: 'osx-builder.puppetlabs.lan'
+pe_version: '2.7'
