@@ -1,6 +1,6 @@
 ---
-rpm_build_host: 'rpmbuilder.puppetlabs.lan'
-deb_build_host: 'wheezy-builder-1.acctest.dc1.puppetlabs.net'
+rpm_build_host: 'rpm-builder.puppetlabs.lan'
+deb_build_host: 'deb-builder.puppetlabs.net'
 osx_build_host: 'osx-builder.puppetlabs.lan'
 freight_conf: 'release.conf'
 team: 'release'
