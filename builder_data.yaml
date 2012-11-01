@@ -7,3 +7,8 @@ team: 'release'
 pe_version: '2.7'
 yum_repo_path: '/opt/enterprise'
 apt_repo_path: '/opt/enterprise'
+sles_repo_path: '/opt/enterprise'
+sles_repo_host: 'neptune.puppetlabs.lan'
+sles_arch_repos:
+  i586: '/home/sles-iso/sles-11-sp1-i586:/home/sles-iso/sles-11-deps-i586:/home/package_repos/sles-11-i586'
+  x86_64: '/home/sles-iso/sles-11-sp1-x86_64:/home/sles-iso/sles-11-deps-x86_64:/home/package_repos/sles-11-x86_64'
