@@ -2,6 +2,7 @@
 rpm_build_host: 'rpm-builder.puppetlabs.lan'
 deb_build_host: 'deb-builder.puppetlabs.lan'
 osx_build_host: 'osx-builder.puppetlabs.lan'
+sles_build_host: 'sles-builder.puppetlabs.lan'
 freight_conf: 'release.conf'
 team: 'release'
 pe_version: '2.7'
