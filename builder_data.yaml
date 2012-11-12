@@ -2,6 +2,7 @@
 rpm_build_host: 'rpm-builder.puppetlabs.lan'
 deb_build_host: 'builder-deb.acctest.dc1.puppetlabs.net'
 osx_build_host: 'osx-builder.puppetlabs.lan'
+ips_build_host: 'builder-ips.acctest.dc1.puppetlabs.net'
 tarball_path: '/opt/downloads/facter'
 dmg_path: '/opt/downloads/mac'
 ips_path: '/opt/downloads/solaris'
