@@ -1,4 +1,13 @@
 ---
+pe:
+  release:
+    freight_conf: 'release.conf'
+  dev:
+    
+foss:
+  release:
+    tarball_path: '/opt/downloads/puppetdb'
+
 rpm_build_host: 'rpm-builder.puppetlabs.lan'
 deb_build_host: 'builder-deb.acctest.dc1.puppetlabs.net'
 tarball_path: '/opt/downloads/puppetdb'
