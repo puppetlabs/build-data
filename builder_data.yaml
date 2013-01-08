@@ -4,6 +4,7 @@ freight_conf: 'pe_dev.conf'
 build_pe: TRUE
 rpm_build_host: 'verne-builder-1.acctest.dc1.puppetlabs.net'
 deb_build_host: 'wheezy-builder-2.acctest.dc1.puppetlabs.net'
+sles_build_host: 'sles-builder.puppetlabs.lan'
 yum_host: 'neptune.puppetlabs.lan'
 yum_repo_path: '/opt/pe_dev'
 apt_host: 'neptune.puppetlabs.lan'
