@@ -4,7 +4,7 @@ freight_conf: 'release.conf'
 build_pe: TRUE
 rpm_build_host: 'rpm-builder.puppetlabs.lan'
 deb_build_host: 'deb-builder.puppetlabs.lan'
-sles_build_host: 'sles-builer.puppetlabs.lan'
+sles_build_host: 'sles-builder.puppetlabs.lan'
 yum_host: 'neptune.puppetlabs.lan'
 yum_repo_path: '/opt/enterprise'
 apt_host: 'neptune.puppetlabs.lan'
