@@ -1,3 +1,1 @@
 ---
-rpm_build_host: 'rpm-builder.puppetlabs.lan'
-deb_build_host: 'builder-deb.acctest.dc1.puppetlabs.net'
