@@ -1,5 +1,5 @@
 ---
-team: 'pe'
+team: 'pe-dev'
 freight_conf: 'pe_dev.conf'
 build_pe: TRUE
 rpm_build_host: 'verne-builder-1.acctest.dc1.puppetlabs.net'
