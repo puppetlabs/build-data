@@ -1,5 +1,4 @@
 ---
 pe_name: 'pe-puppetdb'
 cows: 'base-lucid-i386.cow base-squeeze-i386.cow base-precise-i386.cow base-wheezy-i386.cow'
-pe_version: '2.8'
 final_mocks: 'pupent-2.7-el5-i386 pupent-2.7-el6-i386'
