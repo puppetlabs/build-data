@@ -1,6 +1,11 @@
 ---
-team: 'release'
+team: 'dev'
+freight_conf: 'dev.conf'
 rpm_build_host: 'rpm-builder.puppetlabs.lan'
 deb_build_host: 'builder-deb.acctest.dc1.puppetlabs.net'
 osx_build_host: 'osx-builder.puppetlabs.lan'
 ips_build_host: 'builder-ips.acctest.dc1.puppetlabs.net'
+yum_host: 'neptune.puppetlabs.lan'
+yum_repo_path: '/opt/dev'
+apt_host: 'neptune.puppetlabs.lan'
+apt_repo_path: '/opt/dev'
