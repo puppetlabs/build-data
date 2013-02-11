@@ -11,5 +11,6 @@ apt_host: 'neptune.puppetlabs.lan'
 apt_repo_path: '/opt/dev'
 jenkins_build_host: 'jenkins-release.delivery.puppetlabs.net'
 jenkins_packaging_job: 'puppetlabs-packaging'
+jenkins_repo_path: '/opt/jenkins-builds'
 distribution_server: 'neptune.puppetlabs.lan'
 
