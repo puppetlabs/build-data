@@ -1,9 +1,9 @@
 ---
 team: 'release'
-rpm_build_host: 'rpm-builder.puppetlabs.lan'
-deb_build_host: 'builder-deb.acctest.dc1.puppetlabs.net'
-osx_build_host: 'osx-builder.puppetlabs.lan'
-ips_build_host: 'builder-ips.acctest.dc1.puppetlabs.net'
+rpm_build_host: 'rpm-builder.delivery.puppetlabs.net'
+deb_build_host: 'builder-deb.delivery.puppetlabs.net'
+osx_build_host: 'osx-builder.delivery.puppetlabs.net'
+ips_build_host: 'builder-ips.delivery.puppetlabs.net'
 dmg_path: '/opt/downloads/mac'
 ips_path: '/opt/downloads/solaris'
 certificate_pem: '/root/puppet_cert.pem'
