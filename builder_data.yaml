@@ -2,3 +2,4 @@
 pe_name: 'pe-puppetdb'
 cows: 'base-lucid-i386.cow base-squeeze-i386.cow base-precise-i386.cow base-wheezy-i386.cow'
 final_mocks: 'pupent-3.0-el5-i386 pupent-3.0-el6-i386'
+tarball_path: '/opt/pe_dev'
