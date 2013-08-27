@@ -21,5 +21,5 @@ sles_repo_host: 'neptune.puppetlabs.lan'
 sles_arch_repos:
   i586: '/home/sles-iso/sles-11-sp1-i586:/home/sles-iso/sles-11-deps-i586'
   x86_64: '/home/sles-iso/sles-11-sp1-x86_64:/home/sles-iso/sles-11-deps-x86_64'
-metrics_url: 'metrics.delivery.puppetlabs.net:4567/overview/metrics'
+metrics_url: 'http://metrics.delivery.puppetlabs.net:4567/overview/metrics'
 benchmark: TRUE
