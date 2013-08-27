@@ -15,5 +15,5 @@ jenkins_packaging_job: 'puppetlabs-packaging'
 jenkins_repo_path: '/opt/jenkins-builds'
 distribution_server: 'neptune.puppetlabs.lan'
 builds_server: 'builds.puppetlabs.lan'
-metrics_url: 'metrics.delivery.puppetlabs.net:4567/overview/metrics'
+metrics_url: 'http://metrics.delivery.puppetlabs.net:4567/overview/metrics'
 benchmark: TRUE
