@@ -21,5 +21,5 @@ distribution_server: 'neptune.puppetlabs.lan'
 jenkins_build_host: 'jenkins-release.delivery.puppetlabs.net'
 jenkins_packaging_job: 'puppetlabs-packaging'
 builds_server: 'builds.puppetlabs.lan'
-metrics_url: 'http://metrics.delivery.puppetlabs.net:4567/overview/metrics'
+metrics_url: 'http://metrics.delivery.puppetlabs.net/overview/metrics'
 benchmark: TRUE
