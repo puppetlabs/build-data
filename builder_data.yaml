@@ -16,3 +16,4 @@ distribution_server: 'neptune.puppetlabs.lan'
 builds_server: 'builds.puppetlabs.lan'
 metrics_url: 'http://metrics.delivery.puppetlabs.net/overview/metrics'
 benchmark: TRUE
+redis_hostname: 'logstash-redis.ops.puppetlabs.net'
