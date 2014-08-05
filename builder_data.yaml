@@ -1,2 +1,4 @@
 ---
 tarball_path: '/opt/pe_dev'
+final_mocks: 'pupent-3.4-el4-i386 pupent-3.4-el4-x86_64 pupent-3.4-el5-i386 pupent-3.4-el5-x86_64 pupent-3.4-el6-i386 pupent-3.4-el6-x86_64 pupent-3.4-el7-x86_64 pupent-3.4-eos4-i386 pupent-3.4-eos4-x86_64 pupent-3.4-sles10-i386 pupent-3.4-sles10-x86_64 pupent-3.4-sles11-i386 pupent-3.4-sles11-x86_64'
+cows: 'base-cumulus1.5-powerpc.cow base-lucid-i386.cow base-lucid-amd64.cow base-precise-i386.cow base-precise-amd64.cow base-squeeze-i386.cow base-squeeze-amd64.cow base-trusty-i386.cow base-trusty-amd64.cow base-wheezy-i386.cow base-wheezy-amd64.cow'
