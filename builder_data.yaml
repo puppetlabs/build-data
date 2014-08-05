@@ -17,3 +17,6 @@ distribution_server: 'neptune.puppetlabs.lan'
 builds_server: 'builds.puppetlabs.lan'
 metrics_url: 'http://metrics.delivery.puppetlabs.net/overview/metrics'
 benchmark: TRUE
+pe:
+  final_mocks: 'pupent-3.4-el4-i386 pupent-3.4-el5-i386 pupent-3.4-el6-i386 pupent-3.4-el7-x86_64 pupent-3.4-eos4-i386 pupent-3.4-sles10-i386 pupent-3.4-sles11-i386'
+  cows: 'base-cumulus1.5-powerpc.cow base-lucid-i386.cow base-precise-i386.cow base-squeeze-i386.cow base-trusty-i386.cow base-wheezy-i386.cow'
