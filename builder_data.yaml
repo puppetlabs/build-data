@@ -1,2 +1,4 @@
 ---
 tarball_path: '/opt/downloads/hiera'
+gem_path: '/opt/downloads/hiera'
+gem_host: 'downloads.puppetlabs.com'
