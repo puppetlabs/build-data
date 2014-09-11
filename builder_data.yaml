@@ -1,3 +1,4 @@
 ---
 tarball_path: '/opt/downloads/mcollective'
-
+gem_path: '/opt/downloads/mcollective'
+gem_host: 'downloads.puppetlabs.com'
