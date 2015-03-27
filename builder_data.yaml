@@ -17,3 +17,18 @@ distribution_server: 'neptune.puppetlabs.lan'
 builds_server: 'builds.puppetlabs.lan'
 metrics_url: 'http://metrics.delivery.puppetlabs.net/overview/metrics'
 benchmark: TRUE
+apt_repo_path: /opt/tools/freight/apt/
+yum_repo_path: /opt/repository/yum
+apt_repo_command: |
+  keychain -k mine;
+  eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+  export GPG_TTY=$(tty);
+  sudo -E freight-cache -c /etc/freight.conf.d/community.conf;
+  keychain -k mine;
+yum_repo_command: |
+  for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
+    [ -d "${repodir}" ] || continue;
+    echo "Generating repodata for ${repodir}..."
+    sudo createrepo --checksum=sha --database --update "${repodir}";
+    echo "Finished generating repodata for ${repodir}..."
+  done;
