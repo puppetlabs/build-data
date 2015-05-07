@@ -1,30 +1,10 @@
 ---
 team: 'release'
-rpm_build_host: 'rpm-builder.delivery.puppetlabs.net'
-deb_build_host: 'builder-deb.delivery.puppetlabs.net'
-osx_build_host: 'osx-builder.delivery.puppetlabs.net'
-ips_build_host: 'builder-ips.delivery.puppetlabs.net'
-dmg_path: '/opt/downloads/mac'
-ips_path: '/opt/downloads/solaris'
-certificate_pem: '/root/puppet_cert.pem'
-privatekey_pem: '/root/signing.pem'
-ips_inter_cert: '/root/intermediate'
-ips_package_host: 'burji.puppetlabs.lan'
-jenkins_build_host: 'jenkins-release.delivery.puppetlabs.net'
-jenkins_packaging_job: 'puppetlabs-packaging'
-jenkins_repo_path: '/opt/jenkins-builds'
-distribution_server: 'neptune.puppetlabs.lan'
-builds_server: 'builds.puppetlabs.lan'
-metrics_url: 'http://metrics.delivery.puppetlabs.net/overview/metrics'
-benchmark: TRUE
-apt_repo_path: /opt/tools/freight/apt/
-yum_repo_path: /opt/repository/yum
-apt_repo_command: |
-  keychain -k mine;
-  eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-  export GPG_TTY=$(tty);
-  sudo -E freight-cache -c /etc/freight.conf.d/community.conf;
-  keychain -k mine;
+apt_host: saturn.delivery.puppetlabs.net
+yum_host: saturn.delivery.puppetlabs.net
+apt_repo_path: /opt/tools/freight.build-tools/apt
+yum_repo_path: /opt/build-tools/yum
+apt_repo_command: export GPG_TTY=$(tty); sudo -E freight-cache -c /etc/freight.conf.d/pl-build-tools-repo.conf
 yum_repo_command: |
   for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
     [ -d "${repodir}" ] || continue;
