@@ -16,6 +16,9 @@ jenkins_repo_path: '/opt/jenkins-builds'
 distribution_server: 'neptune.puppetlabs.lan'
 builds_server: 'builds.puppetlabs.lan'
 metrics_url: 'http://metrics.delivery.puppetlabs.net/overview/metrics'
+osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
+osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
+osx_signing_server: 'osx-signer.delivery.puppetlabs.net'
 benchmark: TRUE
 apt_repo_path: /opt/tools/freight/apt/
 yum_repo_path: /opt/repository/yum
