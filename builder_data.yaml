@@ -1,6 +1,6 @@
 ---
 apt_host: 'pl-build-tools.delivery.puppetlabs.net'
-apt_repo_path: '/opt/build-tools/debian'
+apt_repo_path: '/opt/tools/freight.build-tools/apt/'
 apt_repo_name: ''
 yum_host: 'pl-build-tools.delivery.puppetlabs.net'
 yum_repo_path: '/opt/build-tools/yum'
