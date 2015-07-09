@@ -4,6 +4,8 @@ apt_host: saturn.delivery.puppetlabs.net
 yum_host: saturn.delivery.puppetlabs.net
 apt_repo_path: /opt/tools/freight.build-tools/apt
 yum_repo_path: /opt/build-tools/yum
+apt_repo_name: ''
+yum_repo_name: ''
 apt_repo_command: export GPG_TTY=$(tty); sudo -E freight-cache -c /etc/freight.conf.d/pl-build-tools-repo.conf
 yum_repo_command: |
   for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
