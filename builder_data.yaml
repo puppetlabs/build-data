@@ -2,6 +2,12 @@
 apt_host: 'pl-build-tools.delivery.puppetlabs.net'
 apt_repo_path: '/opt/tools/freight.build-tools/apt/'
 apt_repo_name: ''
+apt_repo_command: |
+  keychain -k mine;
+  eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+  export GPG_TTY=$(tty);
+  sudo -E freight-cache -c /etc/freight.conf.d/pl-build-tools-repo.conf;
+  keychain -k mine;
 yum_host: 'pl-build-tools.delivery.puppetlabs.net'
 yum_repo_path: '/opt/build-tools/yum'
 yum_repo_name: ''
