@@ -2,3 +2,4 @@
 osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
 osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
 osx_signing_server: 'osx-signer.delivery.puppetlabs.net'
+ips_signing_server: 'rama.delivery.puppetlabs.net'
