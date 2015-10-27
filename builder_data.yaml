@@ -3,8 +3,10 @@ team: 'release'
 apt_host: saturn.delivery.puppetlabs.net
 yum_host: saturn.delivery.puppetlabs.net
 svr4_host: saturn.delivery.puppetlabs.net
+p5p_host: saturn.delivery.puppetlabs.net
 ips_host: ladybug.delivery.puppetlabs.net
 svr4_path: /opt/build-tools/solaris
+p5p_path: /opt/build-tools/solaris
 ips_path: /export/repo-pl-build-tools
 apt_repo_path: /opt/tools/freight.build-tools/apt
 yum_repo_path: /opt/build-tools/yum
@@ -21,4 +23,5 @@ yum_repo_command: |
   done;
 osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
 osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
-osx_signing_server: 'osx-signer.delivery.puppetlabs.net'
+osx_signing_server: osx-signer.delivery.puppetlabs.net
+ips_signing_server: rama.delivery.puppetlabs.net
