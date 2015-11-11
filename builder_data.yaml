@@ -18,7 +18,9 @@ distribution_server: 'neptune.puppetlabs.lan'
 builds_server: 'builds.puppetlabs.lan'
 metrics_url: 'http://metrics.delivery.puppetlabs.net/overview/metrics'
 benchmark: TRUE
-apt_repo_path: /opt/tools/freight/apt/
+apt_repo_path: /opt/repository/apt
+apt_repo_staging_path: /opt/tools/freight/apt
+apt_signing_server: 'weth.delivery.puppetlabs.net'
 yum_repo_path: /opt/repository/yum
 apt_repo_command: |
   keychain -k mine;
