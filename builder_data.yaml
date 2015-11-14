@@ -1,2 +1,4 @@
 ---
 tarball_path: '/opt/downloads/razor-client'
+gem_path: '/opt/downloads/razor-client'
+gem_host: 'downloads.puppetlabs.com'
