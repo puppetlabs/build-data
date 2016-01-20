@@ -21,6 +21,7 @@ benchmark: true
 apt_signing_server: weth.delivery.puppetlabs.net
 apt_repo_path: "/opt/repository/apt"
 apt_repo_staging_path: "/opt/tools/freight/apt"
+yum_staging_server: weth.delivery.puppetlabs.net
 yum_repo_path: "/opt/repository/yum"
 apt_repo_command: |
   keychain -k mine;
