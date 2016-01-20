@@ -9,5 +9,6 @@ apt_repo_command: |
   sudo -E freight-cache -c /etc/freight.conf.d/pl-build-tools-repo.conf;
   keychain -k mine;
 yum_host: 'pl-build-tools.delivery.puppetlabs.net'
+yum_staging_server: 'pl-build-tools.delivery.puppetlabs.net'
 yum_repo_path: '/opt/build-tools/yum'
 yum_repo_name: ''
