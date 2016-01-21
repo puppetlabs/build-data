@@ -2,3 +2,6 @@
 tarball_path: '/opt/downloads/facter'
 gem_path: '/opt/downloads/facter'
 gem_host: 'downloads.puppetlabs.com'
+osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
+osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
+osx_signing_server: 'osx-signer.delivery.puppetlabs.net'
