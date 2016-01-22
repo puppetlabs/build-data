@@ -1,7 +1,9 @@
 ---
 team: 'release'
 apt_host: saturn.delivery.puppetlabs.net
+apt_signing_server: saturn.delivery.puppetlabs.net
 yum_host: saturn.delivery.puppetlabs.net
+yum_staging_server: saturn.delivery.puppetlabs.net
 svr4_host: saturn.delivery.puppetlabs.net
 p5p_host: saturn.delivery.puppetlabs.net
 ips_host: ladybug.delivery.puppetlabs.net
