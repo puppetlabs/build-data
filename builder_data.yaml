@@ -1,4 +1,5 @@
 ---
+staging_server: 'pl-build-tools.delivery.puppetlabs.net'
 apt_host: 'pl-build-tools.delivery.puppetlabs.net'
 apt_signing_server: 'pl-build-tools.delivery.puppetlabs.net'
 apt_repo_path: '/opt/tools/freight.build-tools/apt'
