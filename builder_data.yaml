@@ -19,6 +19,10 @@ distribution_server: saturn.delivery.puppetlabs.net
 builds_server: builds.puppetlabs.lan
 metrics_url: http://metrics.delivery.puppetlabs.net/overview/metrics
 benchmark: true
+staging_server: weth.delivery.puppetlabs.net
+yum_host: 'yum.puppetlabs.com'
+apt_host: 'apt.puppetlabs.com'
+tar_host: 'downloads.puppetlabs.com'
 apt_signing_server: weth.delivery.puppetlabs.net
 apt_repo_path: "/opt/repository/apt"
 apt_repo_staging_path: "/opt/tools/freight/apt"
