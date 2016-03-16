@@ -1,5 +1,6 @@
 ---
 team: 'release'
+staging_server: saturn.delivery.puppetlabs.net
 apt_host: saturn.delivery.puppetlabs.net
 apt_signing_server: saturn.delivery.puppetlabs.net
 yum_host: saturn.delivery.puppetlabs.net
