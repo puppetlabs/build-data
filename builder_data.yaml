@@ -32,7 +32,13 @@ apt_repo_command: |
   keychain -k mine;
   eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
   export GPG_TTY=$(tty);
-  sudo -E freight-cache -c /etc/freight.conf.d/community.conf;
+  if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
+    sudo -E freight-cache -c /etc/freight.conf.d/community.conf;
+  else
+    for repodir in __APT_PLATFORMS__; do
+      sudo -E freight-cache -c /etc/freight.conf.d/community.conf apt/${repodir};
+    done
+  fi
   keychain -k mine;
 yum_repo_command: |
   for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
