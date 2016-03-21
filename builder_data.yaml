@@ -19,7 +19,12 @@ yum_repo_path: /opt/build-tools/yum
 ips_repo: pl-build-tools
 apt_repo_name: ''
 yum_repo_name: ''
-apt_repo_command: export GPG_TTY=$(tty); sudo -E freight-cache -c /etc/freight.conf.d/pl-build-tools-repo.conf
+apt_repo_command: |
+  keychain -k mine;
+  eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+  export GPG_TTY=$(tty);
+  sudo -E freight-cache -c /etc/freight.conf.d/pl-build-tools-repo.conf;
+  keychain -k mine;
 yum_repo_command: |
   for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
     [ -d "${repodir}" ] || continue;
