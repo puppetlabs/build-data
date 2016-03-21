@@ -3,6 +3,7 @@ staging_server: 'pl-build-tools.delivery.puppetlabs.net'
 apt_host: 'pl-build-tools.delivery.puppetlabs.net'
 apt_signing_server: 'pl-build-tools.delivery.puppetlabs.net'
 apt_repo_path: '/opt/tools/freight.build-tools/apt'
+apt_repo_staging_path: '/opt/tools/freight.build-tools/apt'
 apt_repo_name: ''
 apt_repo_command: |
   keychain -k mine;
