@@ -23,6 +23,7 @@ staging_server: weth.delivery.puppetlabs.net
 yum_host: 'yum.puppetlabs.com'
 apt_host: 'apt.puppetlabs.com'
 tar_host: 'downloads.puppetlabs.com'
+tar_staging_server: 'weth.delivery.puppetlabs.net'
 apt_signing_server: weth.delivery.puppetlabs.net
 apt_repo_path: "/opt/repository/apt"
 apt_repo_staging_path: "/opt/tools/freight/apt"
@@ -50,3 +51,4 @@ yum_repo_command: |
 osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
 osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
 osx_signing_server: 'osx-signer.delivery.puppetlabs.net'
+msi_signing_server: 'windowssigning-aio1-prod.delivery.puppetlabs.net'
