@@ -8,6 +8,7 @@ ips_build_host: builder-ips.delivery.puppetlabs.net
 dmg_path: "/opt/downloads/mac"
 ips_path: "/opt/downloads/solaris"
 swix_path: "/opt/downloads/eos"
+msi_path: "/opt/downloads/windows"
 certificate_pem: "/root/puppet_cert.pem"
 privatekey_pem: "/root/signing.pem"
 ips_inter_cert: "/root/intermediate"
@@ -23,6 +24,8 @@ staging_server: weth.delivery.puppetlabs.net
 yum_host: 'yum.puppetlabs.com'
 apt_host: 'apt.puppetlabs.com'
 tar_host: 'downloads.puppetlabs.com'
+msi_host: 'downloads.puppetlabs.com'
+msi_staging_server: 'weth.delivery.puppetlabs.com'
 tar_staging_server: 'weth.delivery.puppetlabs.net'
 apt_signing_server: weth.delivery.puppetlabs.net
 apt_repo_path: "/opt/repository/apt"
