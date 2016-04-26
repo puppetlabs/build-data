@@ -27,10 +27,12 @@ tar_host: 'downloads.puppetlabs.com'
 msi_host: 'downloads.puppetlabs.com'
 dmg_host: 'downloads.puppetlabs.com'
 swix_host: 'downloads.puppetlabs.com'
+msi_host: 'downloads.puppetlabs.com'
 msi_staging_server: 'weth.delivery.puppetlabs.com'
 tar_staging_server: 'weth.delivery.puppetlabs.net'
 dmg_staging_server: 'weth.delivery.puppetlabs.net'
 swix_staging_server: 'weth.delivery.puppetlabs.net'
+msi_staging_server: 'weth.delivery.puppetlabs.net'
 apt_signing_server: weth.delivery.puppetlabs.net
 apt_repo_path: "/opt/repository/apt"
 apt_repo_staging_path: "/opt/tools/freight/apt"
