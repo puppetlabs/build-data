@@ -1,12 +1,12 @@
 ---
 team: 'release'
-staging_server: pl-build-tools.delivery.puppetlabs.net
-apt_host: pl-build-tools.delivery.puppetlabs.net
-apt_signing_server: pl-build-tools.delivery.puppetlabs.net
-yum_host: pl-build-tools.delivery.puppetlabs.net
-yum_staging_server: pl-build-tools.delivery.puppetlabs.net
-svr4_host: pl-build-tools.delivery.puppetlabs.net
-p5p_host: pl-build-tools.delivery.puppetlabs.net
+staging_server: pl-build-tools-staging.delivery.puppetlabs.net
+apt_host: pl-build-tools-staging.delivery.puppetlabs.net
+apt_signing_server: pl-build-tools-staging.delivery.puppetlabs.net
+yum_host: pl-build-tools-staging.delivery.puppetlabs.net
+yum_staging_server: pl-build-tools-staging.delivery.puppetlabs.net
+svr4_host: pl-build-tools-staging.delivery.puppetlabs.net
+p5p_host: pl-build-tools-staging.delivery.puppetlabs.net
 ips_host: ladybug.delivery.puppetlabs.net
 nuget_host: nexus.delivery.puppetlabs.net:8081
 nuget_repo_path: /content/repositories/nuget-pl-build-tools-staging
