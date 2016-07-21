@@ -15,7 +15,7 @@ jenkins_build_host: jenkins-release.delivery.puppetlabs.net
 jenkins_packaging_job: puppetlabs-packaging
 jenkins_repo_path: "/opt/jenkins-builds"
 distribution_server: builds.delivery.puppetlabs.net
-builds_server: builds.puppetlabs.lan
+builds_server: builds.delivery.puppetlabs.net
 metrics_url: http://metrics.delivery.puppetlabs.net/overview/metrics
 benchmark: true
 staging_server: weth.delivery.puppetlabs.net
