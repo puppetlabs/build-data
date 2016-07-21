@@ -12,7 +12,7 @@ apt_repo_path: '/opt/dev'
 jenkins_build_host: 'jenkins-release.delivery.puppetlabs.net'
 jenkins_packaging_job: 'whopper-testing'
 jenkins_repo_path: '/opt/jenkins-builds'
-distribution_server: 'neptune.puppetlabs.lan'
+distribution_server: 'builds.puppetlabs.lan'
 builds_server: 'builds.puppetlabs.lan'
 metrics_url: 'http://metrics.delivery.puppetlabs.net:4567/overview/metrics'
 benchmark: TRUE
