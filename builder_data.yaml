@@ -1,5 +1,6 @@
 ---
 team: 'release'
+dev_build: TRUE
 staging_server: pl-build-tools-staging.delivery.puppetlabs.net
 apt_host: pl-build-tools-staging.delivery.puppetlabs.net
 apt_signing_server: pl-build-tools-staging.delivery.puppetlabs.net
