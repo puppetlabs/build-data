@@ -1,17 +1,17 @@
 ---
-staging_server: 'internal-tools.delivery.puppetlabs.net'
-apt_host: 'internal-tools.delivery.puppetlabs.net'
-apt_signing_server: 'internal-tools.delivery.puppetlabs.net'
-apt_repo_path: '/opt/tools/aptly/internal/staging'
-apt_repo_staging_path: '/opt/tools/aptly/internal/staging'
-apt_repo_name: 'internal'
+staging_server: 'test-tools.delivery.puppetlabs.net'
+apt_host: 'test-tools.delivery.puppetlabs.net'
+apt_signing_server: 'test-tools.delivery.puppetlabs.net'
+apt_repo_path: '/opt/tools/aptly/test/staging'
+apt_repo_staging_path: '/opt/tools/aptly/test/staging'
+apt_repo_name: 'test'
 apt_repo_command: |
   keychain -k mine;
   eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
   export GPG_TTY=$(tty);
   for dist in `ls __REPO_PATH__`; do
     sudo chmod g+w /opt/tools/aptly/db/LOG;
-    aptly repo add -remove-files internal-${dist} __REPO_PATH__/${dist}
+    aptly repo add -remove-files test-${dist} __REPO_PATH__/${dist}
     if [ -d /opt/tools/aptly/public/__REPO_NAME__/dists/${dist} ]; then
       aptly publish update -gpg-key="__GPG_KEY__" ${dist} __REPO_NAME__
     else
@@ -19,7 +19,7 @@ apt_repo_command: |
     fi
   done
   keychain -k mine;
-yum_host: 'internal-tools.delivery.puppetlabs.net'
-yum_staging_server: 'internal-tools.delivery.puppetlabs.net'
-yum_repo_path: '/opt/internal-tools/yum'
+yum_host: 'test-tools.delivery.puppetlabs.net'
+yum_staging_server: 'test-tools.delivery.puppetlabs.net'
+yum_repo_path: '/opt/test-tools/yum'
 yum_repo_name: ''
