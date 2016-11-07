@@ -23,3 +23,4 @@ yum_host: 'internal-tools.delivery.puppetlabs.net'
 yum_staging_server: 'internal-tools.delivery.puppetlabs.net'
 yum_repo_path: '/opt/internal-tools/yum'
 yum_repo_name: ''
+distribution_server: builds.delivery.puppetlabs.net
