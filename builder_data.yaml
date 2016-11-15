@@ -60,3 +60,38 @@ osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
 osx_signing_server: 'osx-signer.delivery.puppetlabs.net'
 msi_signing_server: 'windowssigning-aio1-prod.delivery.puppetlabs.net'
 internal_nexus_host: 'nexus.delivery.puppetlabs.net:8081/content/repositories/gems-internal'
+foss_platforms:
+  - cumulus-2.2-amd64
+  - debian-7-amd64
+  - debian-7-i386
+  - debian-8-amd64
+  - debian-8-i386
+  - el-5-i386
+  - el-5-x86_64
+  - el-6-i386
+  - el-6-x86_64
+  - el-7-x86_64
+  - eos-4-i386
+  - fedora-f22-i386
+  - fedora-f22-x86_64
+  - fedora-f23-i386
+  - fedora-f23-x86_64
+  - fedora-f24-i386
+  - fedora-f24-x86_64
+  - huaweios-6-powerpc
+  - osx-10.9-x86_64
+  - osx-10.10-x86_64
+  - osx-10.11-x86_64
+  - sles-11-i386
+  - sles-11-x86_64
+  - sles-12-x86_64
+  - ubuntu-12.04-amd64
+  - ubuntu-12.04-i386
+  - ubuntu-14.04-amd64
+  - ubuntu-14.04-i386
+  - ubuntu-15.10-amd64
+  - ubuntu-15.10-i386
+  - ubuntu-16.04-amd64
+  - ubuntu-16.04-i386
+  - windows-2012-x86
+  - windows-2012-x64
