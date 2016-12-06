@@ -62,6 +62,8 @@ msi_signing_server: 'windowssigning-aio1-prod.delivery.puppetlabs.net'
 internal_nexus_host: 'http://nexus.delivery.puppetlabs.net:8081/content/repositories/gems-internal'
 foss_platforms:
   - cumulus-2.2-amd64
+  - cisco-wrlinux-5-x86_64
+  - cisco-wrlinux-7-x86_64
   - debian-7-amd64
   - debian-7-i386
   - debian-8-amd64
