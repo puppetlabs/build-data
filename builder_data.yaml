@@ -1,23 +1,23 @@
 ---
 team: 'release'
-staging_server: internal-tools.delivery.puppetlabs.net
-apt_host: internal-tools.delivery.puppetlabs.net
-apt_signing_server: internal-tools.delivery.puppetlabs.net
-yum_host: internal-tools.delivery.puppetlabs.net
-yum_staging_server: internal-tools.delivery.puppetlabs.net
-svr4_host: internal-tools.delivery.puppetlabs.net
-p5p_host: internal-tools.delivery.puppetlabs.net
+staging_server: test-tools.delivery.puppetlabs.net
+apt_host: test-tools.delivery.puppetlabs.net
+apt_signing_server: test-tools.delivery.puppetlabs.net
+yum_host: test-tools.delivery.puppetlabs.net
+yum_staging_server: test-tools.delivery.puppetlabs.net
+svr4_host: test-tools.delivery.puppetlabs.net
+p5p_host: test-tools.delivery.puppetlabs.net
 ips_host: ladybug.delivery.puppetlabs.net
 nuget_host: nexus.delivery.puppetlabs.net:8081
-nuget_repo_path: /content/repositories/nuget-internal-tools
-svr4_path: /opt/internal-tools/solaris
-p5p_path: /opt/internal-tools/solaris
-ips_path: /export/repo-internal-tools
-apt_repo_path: /opt/tools/aptly/internal/staging
-apt_repo_staging_path: /opt/tools/aptly/internal/staging
-yum_repo_path: /opt/internal-tools/yum
-ips_repo: internal-tools
-apt_repo_name: 'internal'
+nuget_repo_path: /content/repositories/nuget-test-tools
+svr4_path: /opt/test-tools/solaris
+p5p_path: /opt/test-tools/solaris
+ips_path: /export/repo-test-tools
+apt_repo_path: /opt/tools/aptly/test/staging
+apt_repo_staging_path: /opt/tools/aptly/test/staging
+yum_repo_path: /opt/test-tools/yum
+ips_repo: test-tools
+apt_repo_name: 'test'
 yum_repo_name: ''
 apt_repo_command: |
   keychain -k mine;
@@ -25,7 +25,7 @@ apt_repo_command: |
   export GPG_TTY=$(tty);
   for dist in `ls __REPO_PATH__`; do
     sudo chmod g+w /opt/tools/aptly/db/LOG;
-    aptly repo add -remove-files internal-${dist} __REPO_PATH__/${dist}
+    aptly repo add -remove-files test-${dist} __REPO_PATH__/${dist}
     if [ -d /opt/tools/aptly/public/__REPO_NAME__/dists/${dist} ]; then
       aptly publish update -gpg-key="__GPG_KEY__" ${dist} __REPO_NAME__
     else
