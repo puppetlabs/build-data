@@ -74,8 +74,6 @@ foss_platforms:
   - el-6-x86_64
   - el-7-x86_64
   - eos-4-i386
-  - fedora-f23-i386
-  - fedora-f23-x86_64
   - fedora-f24-i386
   - fedora-f24-x86_64
   - fedora-f25-i386
@@ -87,8 +85,6 @@ foss_platforms:
   - sles-11-i386
   - sles-11-x86_64
   - sles-12-x86_64
-  - ubuntu-12.04-amd64
-  - ubuntu-12.04-i386
   - ubuntu-14.04-amd64
   - ubuntu-14.04-i386
   - ubuntu-16.04-amd64
