@@ -1,4 +1,4 @@
 ---
 tarball_path: '/opt/downloads/facter'
 gem_path: '/opt/downloads/facter'
-gem_host: 'downloads.puppetlabs.com'
+gem_host: 'weth.delivery.puppetlabs.net'
