@@ -15,3 +15,4 @@ yum_host: 'pl-build-tools.delivery.puppetlabs.net'
 yum_staging_server: 'pl-build-tools.delivery.puppetlabs.net'
 yum_repo_path: '/opt/build-tools/yum'
 yum_repo_name: ''
+s3_ship: false
