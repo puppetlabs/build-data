@@ -24,3 +24,4 @@ yum_staging_server: 'test-tools.delivery.puppetlabs.net'
 yum_repo_path: '/opt/test-tools/yum'
 yum_repo_name: ''
 distribution_server: builds.delivery.puppetlabs.net
+s3_ship: false
