@@ -50,10 +50,14 @@ apt_repo_command: |
   keychain -k mine;
 yum_repo_command: |
   for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
-    [ -d "${repodir}" ] || continue;
-    echo "Generating repodata for ${repodir}..."
-    sudo createrepo --checksum=sha --database --update "${repodir}";
-    echo "Finished generating repodata for ${repodir}..."
+    [ -d "${repodir}" ] || continue ;
+    echo "Generating and signing repodata for ${repodir} with __GPG_KEY__..." ;
+    sudo chown -R root:release "${repodir}/repodata" ;
+    sudo chmod -R g+w "${repodir}/repodata" ;
+    createrepo --checksum=sha --database --update "${repodir}" ;
+    gpg --use-agent --armor --detach-sign -u __GPG_KEY__ "${repodir}/repodata/repomd.xml" ;
+    sudo chown -R root:release "${repodir}/repodata" ;
+    sudo chmod -R g+w "${repodir}/repodata"
   done;
 osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
 osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
