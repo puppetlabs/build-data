@@ -51,14 +51,13 @@ apt_repo_command: |
 yum_repo_command: |
   keychain -k mine;
   eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-  export GPG_TTY=$(tty);
   for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
     [ -d "${repodir}" ] || continue ;
     echo "Generating and signing repodata for ${repodir} with __GPG_KEY__..." ;
     sudo chown -R root:release "${repodir}/repodata" ;
     sudo chmod -R g+w "${repodir}/repodata" ;
     createrepo --checksum=sha --database --update "${repodir}" ;
-    gpg --use-agent --armor --detach-sign -u __GPG_KEY__ "${repodir}/repodata/repomd.xml" ;
+    gpg --yes --use-agent --armor --detach-sign -u __GPG_KEY__ "${repodir}/repodata/repomd.xml" ;
     sudo chown -R root:release "${repodir}/repodata" ;
     sudo chmod -R g+w "${repodir}/repodata"
   done;
