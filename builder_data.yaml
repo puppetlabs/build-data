@@ -6,9 +6,13 @@ deb_build_host: builder-deb.delivery.puppetlabs.net
 osx_build_host: osx-builder.delivery.puppetlabs.net
 ips_build_host: builder-ips.delivery.puppetlabs.net
 dmg_path: "/opt/downloads/mac"
+nonfinal_dmg_path: "/opt/repository-nightlies/downloads/mac"
 ips_path: "/opt/downloads/solaris"
+nonfinal_ips_path: "/opt/repository-nightlies/downloads/solaris"
 swix_path: "/opt/downloads/eos"
+nonfinal_swix_path: "/opt/repository-nightlies/downloads/eos"
 msi_path: "/opt/downloads/windows"
+nonfinal_msi_path: "/opt/repository-nightlies/downloads/windows"
 certificate_pem: "/root/puppet_cert.pem"
 privatekey_pem: "/root/signing.pem"
 jenkins_build_host: jenkins-release.delivery.puppetlabs.net
@@ -34,8 +38,11 @@ msi_staging_server: 'weth.delivery.puppetlabs.net'
 apt_signing_server: weth.delivery.puppetlabs.net
 apt_repo_path: "/opt/repository/apt"
 apt_repo_staging_path: "/opt/tools/freight/apt"
+nonfinal_apt_repo_path: "/opt/repository-nightlies/apt"
+nonfinal_apt_repo_staging_path: "/opt/tools/freight-nightlies/apt"
 yum_staging_server: weth.delivery.puppetlabs.net
 yum_repo_path: "/opt/repository/yum"
+nonfinal_yum_repo_path: "/opt/repository-nightlies/yum"
 apt_repo_command: |
   keychain -k mine;
   eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
@@ -45,6 +52,18 @@ apt_repo_command: |
   else
     for repodir in __APT_PLATFORMS__; do
       sudo -E freight-cache -c /etc/freight.conf.d/community.conf apt/${repodir};
+    done
+  fi
+  keychain -k mine;
+nonfinal_apt_repo_command: |
+  keychain -k mine;
+  eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+  export GPG_TTY=$(tty);
+  if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
+    sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf;
+  else
+    for repodir in __APT_PLATFORMS__; do
+      sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf apt/${repodir};
     done
   fi
   keychain -k mine;
