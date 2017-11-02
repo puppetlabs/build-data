@@ -40,8 +40,5 @@ yum_repo_command: |
     sudo createrepo --checksum=sha --database --update "${repodir}";
     echo "Finished generating repodata for ${repodir}..."
   done;
-osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
-osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
-osx_signing_server: osx-signer.delivery.puppetlabs.net
 ips_signing_server: rama.delivery.puppetlabs.net
 s3_ship: false
