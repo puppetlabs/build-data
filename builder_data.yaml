@@ -6,13 +6,13 @@ deb_build_host: builder-deb.delivery.puppetlabs.net
 osx_build_host: osx-builder.delivery.puppetlabs.net
 ips_build_host: builder-ips.delivery.puppetlabs.net
 dmg_path: "/opt/downloads/mac"
-nonfinal_dmg_path: "/opt/repository-nightlies/downloads/mac"
+nonfinal_dmg_path: "/opt/repository-nightlies/downloads"
 ips_path: "/opt/downloads/solaris"
-nonfinal_ips_path: "/opt/repository-nightlies/downloads/solaris"
+nonfinal_ips_path: "/opt/repository-nightlies/downloads"
 swix_path: "/opt/downloads/eos"
-nonfinal_swix_path: "/opt/repository-nightlies/downloads/eos"
+nonfinal_swix_path: "/opt/repository-nightlies/downloads"
 msi_path: "/opt/downloads/windows"
-nonfinal_msi_path: "/opt/repository-nightlies/downloads/windows"
+nonfinal_msi_path: "/opt/repository-nightlies/downloads"
 certificate_pem: "/root/puppet_cert.pem"
 privatekey_pem: "/root/signing.pem"
 jenkins_build_host: jenkins-release.delivery.puppetlabs.net
