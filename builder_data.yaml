@@ -45,45 +45,54 @@ yum_staging_server: weth.delivery.puppetlabs.net
 yum_repo_path: "/opt/repository/yum"
 nonfinal_yum_repo_path: "/opt/repository-nightlies/yum"
 apt_repo_command: |
-  keychain -k mine;
-  eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-  export GPG_TTY=$(tty);
-  if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
-    sudo -E freight-cache -c /etc/freight.conf.d/community.conf;
-  else
-    for repodir in __APT_PLATFORMS__; do
-      sudo -E freight-cache -c /etc/freight.conf.d/community.conf apt/${repodir};
-    done
-  fi
-  keychain -k mine;
-nonfinal_apt_repo_command: |
-  keychain -k mine;
-  eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-  export GPG_TTY=$(tty);
-  if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
-    sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf;
-  else
-    for repodir in __APT_PLATFORMS__; do
-      sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf apt/${repodir};
-    done
-  fi
-  keychain -k mine;
-yum_repo_command: |
-  keychain -k mine;
-  eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-  for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
-    [ -d "${repodir}" ] || continue ;
-    echo "Generating and signing repodata for ${repodir} with __GPG_KEY__..." ;
-    if [ -d "${repodir}/repodata" ]; then
-      sudo chown -R root:release "${repodir}/repodata" ;
-      sudo chmod -R g+w "${repodir}/repodata" ;
+  (
+    flock --wait 600 200
+    keychain -k mine;
+    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+    export GPG_TTY=$(tty);
+    if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
+      sudo -E freight-cache -c /etc/freight.conf.d/community.conf;
+    else
+      for repodir in __APT_PLATFORMS__; do
+        sudo -E freight-cache -c /etc/freight.conf.d/community.conf apt/${repodir};
+      done
     fi
-    createrepo --checksum=sha --database --update "${repodir}" ;
-    gpg --yes --use-agent --armor --detach-sign -u __GPG_KEY__ "${repodir}/repodata/repomd.xml" ;
-    sudo chown -R root:release "${repodir}/repodata" ;
-    sudo chmod -R g+w "${repodir}/repodata"
-  done;
-  keychain -k mine;
+    keychain -k mine;
+  ) 200>/var/lock/apt-repo-lock
+nonfinal_apt_repo_command: |
+  (
+    flock --wait 600 200
+    keychain -k mine;
+    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+    export GPG_TTY=$(tty);
+    if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
+      sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf;
+    else
+      for repodir in __APT_PLATFORMS__; do
+        sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf apt/${repodir};
+      done
+    fi
+    keychain -k mine;
+  ) 200>/var/lock/apt-repo-lock
+yum_repo_command: |
+  (
+    flock --wait 600 300
+    keychain -k mine;
+    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+    for repodir in $(find "__REPO_PATH__" -mindepth 2 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
+      [ -d "${repodir}" ] || continue ;
+      echo "Generating and signing repodata for ${repodir} with __GPG_KEY__..." ;
+      if [ -d "${repodir}/repodata" ]; then
+        sudo chown -R root:release "${repodir}/repodata" ;
+        sudo chmod -R g+w "${repodir}/repodata" ;
+      fi
+      createrepo --checksum=sha --database --update "${repodir}" ;
+      gpg --yes --use-agent --armor --detach-sign -u __GPG_KEY__ "${repodir}/repodata/repomd.xml" ;
+      sudo chown -R root:release "${repodir}/repodata" ;
+      sudo chmod -R g+w "${repodir}/repodata"
+    done;
+    keychain -k mine;
+  ) 300>/var/lock/yum-repo-lock
 osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
 osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
 osx_signing_server: 'jenkins@osx-signer.delivery.puppetlabs.net'
