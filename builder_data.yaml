@@ -79,7 +79,7 @@ yum_repo_command: |
     flock --wait 600 300
     keychain -k mine;
     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-    for repodir in $(find "__REPO_PATH__" -mindepth 3 -name "*.rpm" | xargs -I {} dirname {} | uniq) ; do
+    for repodir in $(find "__REPO_PATH__" -mindepth 3 -name "*.rpm" | xargs -I {} dirname {} | sort | uniq) ; do
       [ -d "${repodir}" ] || continue ;
       echo "Generating and signing repodata for ${repodir} with __GPG_KEY__..." ;
       if [ -d "${repodir}/repodata" ]; then
