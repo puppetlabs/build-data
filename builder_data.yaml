@@ -9,8 +9,8 @@ yum_staging_server: pl-build-tools-staging.delivery.puppetlabs.net
 svr4_host: pl-build-tools-staging.delivery.puppetlabs.net
 p5p_host: pl-build-tools-staging.delivery.puppetlabs.net
 ips_host: ladybug.delivery.puppetlabs.net
-nuget_host: nexus.delivery.puppetlabs.net:8081
-nuget_repo_path: /content/repositories/nuget-pl-build-tools-staging
+nuget_host: artifactory.delivery.puppetlabs.net
+nuget_repo_path: /artifactory/api/nuget/nuget-pl-build-tools-staging
 svr4_path: /opt/build-tools-staging/solaris
 p5p_path: /opt/build-tools-staging/solaris
 ips_path: /export/repo-pl-build-tools-staging
