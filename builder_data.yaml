@@ -21,7 +21,7 @@ jenkins_repo_path: "/opt/jenkins-builds"
 distribution_server: builds.delivery.puppetlabs.net
 builds_server: builds.delivery.puppetlabs.net
 metrics_url: http://metrics.delivery.puppetlabs.net/overview/metrics
-benchmark: true
+benchmark: false
 staging_server: weth.delivery.puppetlabs.net
 signing_server: mozart.delivery.puppetlabs.net
 yum_host: 'yum.puppetlabs.com'
