@@ -24,8 +24,8 @@ metrics_url: http://metrics.delivery.puppetlabs.net/overview/metrics
 benchmark: false
 staging_server: weth.delivery.puppetlabs.net
 signing_server: mozart.delivery.puppetlabs.net
-yum_host: 'yum.puppetlabs.com'
-apt_host: 'apt.puppetlabs.com'
+yum_host: 'enterprise.delivery.puppetlabs.net'
+apt_host: 'enterprise.delivery.puppetlabs.net'
 tar_host: 'downloads.puppetlabs.com'
 msi_host: 'downloads.puppetlabs.com'
 dmg_host: 'downloads.puppetlabs.com'
