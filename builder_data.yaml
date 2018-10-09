@@ -97,6 +97,7 @@ osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
 osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
 osx_signing_server: 'jenkins@osx-signer.delivery.puppetlabs.net'
 msi_signing_server: 'windowssigning-aio1-prod.delivery.puppetlabs.net'
+ips_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 internal_nexus_host: 'http://nexus.delivery.puppetlabs.net:8081/content/repositories/gems-internal'
 s3_ship: true
 foss_platforms:
