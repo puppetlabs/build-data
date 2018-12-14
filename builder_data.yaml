@@ -117,6 +117,7 @@ foss_platforms:
   - el-7-x86_64
   - el-7-ppc64le
   - el-7-aarch64
+  - el-8-x86_64
   - eos-4-i386
   - fedora-f25-i386
   - fedora-f25-x86_64
