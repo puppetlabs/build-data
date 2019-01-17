@@ -96,7 +96,9 @@ yum_repo_command: |
 osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
 osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
 osx_signing_server: 'jenkins@osx-signer.delivery.puppetlabs.net'
+osx_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 msi_signing_server: 'windowssigning-aio1-prod.delivery.puppetlabs.net'
+msi_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 ips_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 internal_nexus_host: 'http://nexus.delivery.puppetlabs.net:8081/content/repositories/gems-internal'
 s3_ship: true
