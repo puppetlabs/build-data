@@ -44,6 +44,10 @@ nonfinal_apt_repo_staging_path: "/opt/tools/freight-nightlies/apt"
 yum_staging_server: weth.delivery.puppetlabs.net
 yum_repo_path: "/opt/repository/yum"
 nonfinal_yum_repo_path: "/opt/repository-nightlies/yum"
+apt_archive_path: "/opt/release-archives-staging/apt"
+freight_archive_path: "/opt/freight-archives-staging"
+yum_archive_path: "/opt/release-archives-staging/yum"
+downloads_archive_path: "/opt/release-archives-staging/downloads"
 apt_repo_command: |
   (
     flock --wait 600 200
