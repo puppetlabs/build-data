@@ -45,7 +45,7 @@ yum_staging_server: weth.delivery.puppetlabs.net
 yum_repo_path: "/opt/repository/yum"
 nonfinal_yum_repo_path: "/opt/repository-nightlies/yum"
 apt_archive_path: "/opt/release-archives-staging/apt"
-freight_archive_path: "/opt/freight-archives-staging"
+freight_archive_path: "/opt/tools/freight-archives/apt"
 yum_archive_path: "/opt/release-archives-staging/yum"
 downloads_archive_path: "/opt/release-archives-staging/downloads"
 apt_repo_command: |
