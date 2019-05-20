@@ -78,6 +78,21 @@ nonfinal_apt_repo_command: |
     fi
     keychain -k mine;
   ) 400>/var/lock/apt-nightly-repo-lock
+apt_archive_repo_command: |
+  (
+    flock --wait 600 600
+    keychain -k mine;
+    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+    export GPG_TTY=$(tty);
+    if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
+      sudo -E freight-cache -c /etc/freight.conf.d/archive.conf;
+    else
+      for repodir in __APT_PLATFORMS__; do
+        sudo -E freight-cache -c /etc/freight.conf.d/archive.conf apt/${repodir};
+      done
+    fi
+    keychain -k mine;
+  ) 600>/var/lock/apt-archive-repo-lock
 yum_repo_command: |
   (
     flock --wait 1200 300
