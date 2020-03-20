@@ -122,11 +122,8 @@ ips_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 internal_nexus_host: 'http://nexus.delivery.puppetlabs.net:8081/content/repositories/gems-internal'
 s3_ship: true
 foss_platforms:
-  - cumulus-2.2-amd64
   - cisco-wrlinux-5-x86_64
   - cisco-wrlinux-7-x86_64
-  - debian-7-amd64
-  - debian-7-i386
   - debian-8-amd64
   - debian-8-i386
   - debian-9-amd64
@@ -140,31 +137,13 @@ foss_platforms:
   - el-7-ppc64le
   - el-7-aarch64
   - el-8-x86_64
-  - eos-4-i386
-  - fedora-f25-i386
-  - fedora-f25-x86_64
-  - fedora-f26-x86_64
-  - fedora-25-i386
-  - fedora-25-x86_64
-  - fedora-26-x86_64
-  - fedora-27-x86_64
-  - fedora-28-x86_64
-  - fedora-29-x86_64
   - fedora-30-x86_64
   - fedora-31-x86_64
-  - osx-10.10-x86_64
-  - osx-10.11-x86_64
-  - osx-10.12-x86_64
-  - osx-10.13-x86_64
   - osx-10.14-x86_64
   - osx-10.15-x86_64
-  - sles-11-i386
-  - sles-11-x86_64
   - sles-12-x86_64
   - sles-12-ppc64le
   - sles-15-x86_64
-  - ubuntu-14.04-amd64
-  - ubuntu-14.04-i386
   - ubuntu-16.04-amd64
   - ubuntu-16.04-i386
   - ubuntu-16.04-ppc64el
