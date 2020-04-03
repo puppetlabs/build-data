@@ -152,6 +152,7 @@ foss_platforms:
   - ubuntu-16.04-i386
   - ubuntu-16.04-ppc64el
   - ubuntu-18.04-amd64
+  - ubuntu-20.04-amd64
   - windows-2012-x86
   - windows-2012-x64
 rsync_servers:
