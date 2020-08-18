@@ -55,12 +55,13 @@ apt_repo_command: |
     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
     export GPG_TTY=$(tty);
     if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
-      sudo -E freight-cache -c /etc/freight.conf.d/community.conf;
+      sudo -E freight-cache -c /etc/freight.conf.d/community.conf &
     else
       for repodir in __APT_PLATFORMS__; do
-        sudo -E freight-cache -c /etc/freight.conf.d/community.conf apt/${repodir};
+        sudo -E freight-cache -c /etc/freight.conf.d/community.conf apt/${repodir} &
       done
     fi
+    wait
     keychain -k mine;
   ) 200>/var/lock/apt-repo-lock
 nonfinal_apt_repo_command: |
@@ -70,12 +71,13 @@ nonfinal_apt_repo_command: |
     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
     export GPG_TTY=$(tty);
     if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
-      sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf;
+      sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf &
     else
       for repodir in __APT_PLATFORMS__; do
-        sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf apt/${repodir};
+        sudo -E freight-cache -c /etc/freight-nightly.conf.d/community.conf apt/${repodir} &
       done
     fi
+    wait
     keychain -k mine;
   ) 400>/var/lock/apt-nightly-repo-lock
 apt_archive_repo_command: |
@@ -85,27 +87,32 @@ apt_archive_repo_command: |
     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
     export GPG_TTY=$(tty);
     if printf -- '%s' "__APT_PLATFORMS__" | egrep -q -- "APT_PLATFORMS"; then
-      sudo -E freight-cache -c /etc/freight.conf.d/archive.conf;
+      sudo -E freight-cache -c /etc/freight.conf.d/archive.conf &
     else
       for repodir in __APT_PLATFORMS__; do
-        sudo -E freight-cache -c /etc/freight.conf.d/archive.conf apt/${repodir};
+        sudo -E freight-cache -c /etc/freight.conf.d/archive.conf apt/${repodir} &
       done
     fi
+    wait
     keychain -k mine;
   ) 600>/var/lock/apt-archive-repo-lock
 yum_repo_command: |
   (
     flock --wait 1200 300
-    keychain -k mine;
-    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-    for repodir in $(find "__REPO_PATH__" -mindepth 3 -path "*__REPO_NAME__*.rpm" | xargs -I {} dirname {} | sort | uniq) ; do
+    repodirs=$(find "__REPO_PATH__" -mindepth 3 -path "*__REPO_NAME__*.rpm" | xargs -I {} dirname {} | sort | uniq)
+    for repodir in $repodirs; do
       [ -d "${repodir}" ] || continue ;
       echo "Generating and signing repodata for ${repodir} with __GPG_KEY__..." ;
       if [ -d "${repodir}/repodata" ]; then
         sudo chown -R root:release "${repodir}/repodata" ;
         sudo chmod -R g+w "${repodir}/repodata" ;
       fi
-      createrepo --checksum=sha --database --update "${repodir}" ;
+      createrepo --checksum=sha --database --update "${repodir}" &
+    done;
+    wait;
+    keychain -k mine;
+    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+    for repodir in $repodirs; do
       gpg --yes --no-tty --use-agent --armor --detach-sign -u __GPG_KEY__ "${repodir}/repodata/repomd.xml" ;
       sudo chown -R root:release "${repodir}/repodata" ;
       sudo chmod -R g+w "${repodir}/repodata"
