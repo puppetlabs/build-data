@@ -144,6 +144,7 @@ foss_platforms:
   - el-7-ppc64le
   - el-7-aarch64
   - el-8-x86_64
+  - el-8-aarch64
   - fedora-30-x86_64
   - fedora-31-x86_64
   - fedora-32-x86_64
