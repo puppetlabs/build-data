@@ -1,6 +1,6 @@
 ---
-team: release
-gpg_key: '7F438280EF8D349F'
+team: release-new-new
+gpg_key: '4528B6CD9E61EF26'
 rpm_build_host: rpm-builder.delivery.puppetlabs.net
 deb_build_host: builder-deb.delivery.puppetlabs.net
 osx_build_host: osx-builder.delivery.puppetlabs.net
