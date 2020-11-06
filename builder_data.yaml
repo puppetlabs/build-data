@@ -55,13 +55,13 @@ downloads_archive_path: "/opt/release-archives-staging/downloads"
 #  /opt/tools/freight/apt/puppet7
 #  /opt/tools/freight-nightlies/apt/puppet7-nightly
 # These handle that condition
-releaseable_apt_repo_generate: |
+stable_apt_repo_generate: |
   (
     flock --wait 600 270
     keychain -k mine;
     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
     export GPG_TTY=$(tty);
-    freight_configuration=/etc/freight.conf.d/releaseable.conf;
+    freight_configuration=/etc/freight.conf.d/stable.conf;
     if printf -- %s "__APT_PUPPET_REPOSITORIES__" | grep --quiet -- APT_PUPPET_REPOSITORIES; then
       sudo --preserve-env freight cache --conf=$freight_configuration &
     else
@@ -71,7 +71,7 @@ releaseable_apt_repo_generate: |
     fi
     wait
     keychain -k mine;
-  ) 270>/var/lock/releaseable_apt_repo_generate.lock
+  ) 270>/var/lock/stable_apt_repo_generate.lock
 
 nonfinal_apt_repo_generate: |
   (
