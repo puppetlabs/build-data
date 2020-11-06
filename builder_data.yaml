@@ -55,22 +55,23 @@ downloads_archive_path: "/opt/release-archives-staging/downloads"
 #  /opt/tools/freight/apt/puppet7
 #  /opt/tools/freight-nightlies/apt/puppet7-nightly
 # These handle that condition
-community_apt_repo_generate: |
+releaseable_apt_repo_generate: |
   (
     flock --wait 600 270
     keychain -k mine;
     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
     export GPG_TTY=$(tty);
+    freight_configuration=/etc/freight.conf.d/releaseable.conf;
     if printf -- %s "__APT_PUPPET_REPOSITORIES__" | grep --quiet -- APT_PUPPET_REPOSITORIES; then
-      sudo --preserve-env freight cache --conf=/etc/freight.conf.d/community.conf &
+      sudo --preserve-env freight cache --conf=$freight_configuration &
     else
       for apt_puppet_repository in __APT_PUPPET_REPOSITORIES__; do
-        sudo -E freight cache --conf=/etc/freight.conf.d/community.conf apt/$apt_puppet_repository &
+        sudo -E freight cache --conf=$freight_configuration apt/$apt_puppet_repository &
       done
     fi
     wait
     keychain -k mine;
-  ) 270>/var/lock/community_apt_repo_generate
+  ) 270>/var/lock/releaseable_apt_repo_generate.lock
 
 nonfinal_apt_repo_generate: |
   (
@@ -78,16 +79,17 @@ nonfinal_apt_repo_generate: |
     keychain -k mine;
     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
     export GPG_TTY=$(tty);
+    freight_configuration=/etc/freight-nightly.conf.d/nonfinal.conf;
     if printf -- %s "__APT_PUPPET_REPOSITORIES__" | grep --quiet -- APT_PUPPET_REPOSITORIES; then
-      sudo --preserve-env freight cache --conf=/etc/freight-nightly.conf.d/community.conf &
+      sudo --preserve-env freight cache --conf=$freight_configuration &
     else
       for apt_puppet_repository in __APT_PUPPET_REPOSITORIES__; do
-        sudo --preserve-env freight cache --conf=/etc/freight-nightly.conf.d/community.conf apt/$apt_puppet_repository &
+        sudo --preserve-env freight cache --conf=$freight_configuration apt/$apt_puppet_repository &
       done
     fi
     wait
     keychain -k mine;
-  ) 470>/var/lock/nonfinal_apt_repo_generate
+  ) 470>/var/lock/nonfinal_apt_repo_generate.lock
 
 archive_apt_repo_generate: |
   (
@@ -95,16 +97,17 @@ archive_apt_repo_generate: |
     keychain -k mine;
     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
     export GPG_TTY=$(tty);
+    freight_configuration=/etc/freight-nightly.conf.d/archive.conf;
     if printf -- %s "__APT_PUPPET_REPOSITORIES__" | grep --quiet -- APT_PUPPET_REPOSITORIES; then
-      sudo --preserve-env freight cache --conf=/etc/freight.conf.d/archive.conf &
+      sudo --preserve-env freight cache --conf=$freight_configuration &
     else
       for apt_puppet_repository in __APT_PUPPET_REPOSITORIES__; do
-        sudo --preserve-env freight cache --conf=/etc/freight.conf.d/archive.conf apt/$apt_puppet_repository &
+        sudo --preserve-env freight cache --conf=$freight_configuration apt/$apt_puppet_repository &
       done
     fi
     wait
     keychain -k mine;
-  ) 670>/var/lock/archive_apt_repo_generate
+  ) 670>/var/lock/archive_apt_repo_generate.lock
 
 
 # Prior to puppet7, apt repos were organized by debian codenames inside of
