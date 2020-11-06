@@ -48,6 +48,72 @@ apt_archive_path: "/opt/release-archives-staging/apt"
 freight_archive_path: "/opt/tools/freight-archives/apt"
 yum_archive_path: "/opt/release-archives-staging/yum"
 downloads_archive_path: "/opt/release-archives-staging/downloads"
+
+# Starting with puppet7, apt repos were organized by puppet version: puppet7,
+# puppet6.
+# Examples:
+#  /opt/tools/freight/apt/puppet7
+#  /opt/tools/freight-nightlies/apt/puppet7-nightly
+# These handle that condition
+community_apt_repo_generate: |
+  (
+    flock --wait 600 270
+    keychain -k mine;
+    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+    export GPG_TTY=$(tty);
+    if printf -- %s "__APT_PUPPET_REPOSITORIES__" | grep --quiet -- APT_PUPPET_REPOSITORIES; then
+      sudo --preserve-env freight cache --conf=/etc/freight.conf.d/community.conf &
+    else
+      for apt_puppet_repository in __APT_PUPPET_REPOSITORIES__; do
+        sudo -E freight cache --conf=/etc/freight.conf.d/community.conf apt/$apt_puppet_repository &
+      done
+    fi
+    wait
+    keychain -k mine;
+  ) 270>/var/lock/community_apt_repo_generate
+
+nonfinal_apt_repo_generate: |
+  (
+    flock --wait 600 470
+    keychain -k mine;
+    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+    export GPG_TTY=$(tty);
+    if printf -- %s "__APT_PUPPET_REPOSITORIES__" | grep --quiet -- APT_PUPPET_REPOSITORIES; then
+      sudo --preserve-env freight cache --conf=/etc/freight-nightly.conf.d/community.conf &
+    else
+      for apt_puppet_repository in __APT_PUPPET_REPOSITORIES__; do
+        sudo --preserve-env freight cache --conf=/etc/freight-nightly.conf.d/community.conf apt/$apt_puppet_repository &
+      done
+    fi
+    wait
+    keychain -k mine;
+  ) 470>/var/lock/nonfinal_apt_repo_generate
+
+archive_apt_repo_generate: |
+  (
+    flock --wait 600 670
+    keychain -k mine;
+    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+    export GPG_TTY=$(tty);
+    if printf -- %s "__APT_PUPPET_REPOSITORIES__" | grep --quiet -- APT_PUPPET_REPOSITORIES; then
+      sudo --preserve-env freight cache --conf=/etc/freight.conf.d/archive.conf &
+    else
+      for apt_puppet_repository in __APT_PUPPET_REPOSITORIES__; do
+        sudo --preserve-env freight cache --conf=/etc/freight.conf.d/archive.conf apt/$apt_puppet_repository &
+      done
+    fi
+    wait
+    keychain -k mine;
+  ) 670>/var/lock/archive_apt_repo_generate
+
+
+# Prior to puppet7, apt repos were organized by debian codenames inside of
+# /opt/tools/freight/apt, /opt/tools/freight-nightlies/apt,
+# Examples:
+#   /opt/tools/freight/apt/xenial
+#   /opt/tools/freight-nightlies/apt/bionic
+#
+# These handle that condition
 apt_repo_command: |
   (
     flock --wait 600 200
@@ -64,6 +130,7 @@ apt_repo_command: |
     wait
     keychain -k mine;
   ) 200>/var/lock/apt-repo-lock
+
 nonfinal_apt_repo_command: |
   (
     flock --wait 600 400
