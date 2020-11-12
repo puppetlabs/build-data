@@ -180,7 +180,7 @@ apt_archive_repo_command: |
     keychain -k mine;
   ) 600>/var/lock/apt-archive-repo-lock
 
-  yum_repo_command: |
+yum_repo_command: |
   (
     flock --wait 1200 300
     repodirs=$(find "__REPO_PATH__" -mindepth 3 -path "*__REPO_NAME__*.rpm" | xargs -I {} dirname {} | sort | uniq)
