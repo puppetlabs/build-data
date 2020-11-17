@@ -37,10 +37,6 @@ dmg_staging_server: 'weth.delivery.puppetlabs.net'
 swix_staging_server: 'weth.delivery.puppetlabs.net'
 msi_staging_server: 'weth.delivery.puppetlabs.net'
 apt_signing_server: weth.delivery.puppetlabs.net
-apt_repo_path: "/opt/repository/apt"
-apt_repo_staging_path: "/opt/tools/freight/apt"
-nonfinal_apt_repo_path: "/opt/repository-nightlies/apt"
-nonfinal_apt_repo_staging_path: "/opt/tools/freight-nightlies/apt"
 yum_staging_server: weth.delivery.puppetlabs.net
 yum_repo_path: "/opt/repository/yum"
 nonfinal_yum_repo_path: "/opt/repository-nightlies/yum"
@@ -58,14 +54,22 @@ downloads_archive_path: "/opt/release-archives-staging/downloads"
 #  /opt/tools/freight/apt/bionic/puppet5
 #  /opt/tools/freight/apt/bionic/puppet6
 #
-# Starting with puppet7, we make new apt repos for each puppet major version:
-#  /opt/tools/freight/<puppet-version>/apt/<distro>
+# Starting with puppet7, we stage apt repos for each puppet major version:
+#  /opt/tools/<puppet-version>/{freight,freight-nighlies}/apt/<distro>
 #
 # Example:
-#  /opt/tools/freight/puppet7/apt/bionic
+#  /opt/tools/puppet7/freight/apt/bionic
+# 
+# Freight then builds the repositories and deploys them to:
+#  /opt/repository/apt/puppet7
 #
 # Each major puppet release (puppet7, puppet8, puppet9, ...) requires a dedicated freight
 # configuration to manage the VARLIB and VARCACHE locations.
+
+puppet7_apt_repo_path: "/opt/repository/apt/puppet7"
+puppet7_apt_repo_staging_path: "/opt/tools/puppet7/freight/apt"
+puppet7_nonfinal_apt_repo_path: "/opt/repository-nightlies/apt/puppet7"
+puppet7_nonfinal_apt_repo_staging_path: "/opt/tools/puppet7/freight-nightlies/apt"
 
 puppet7_stable_apt_repo_generate: |
   (
@@ -103,6 +107,7 @@ puppet7_nonfinal_apt_repo_generate: |
     keychain -k mine;
   ) 470>/var/lock/puppet7_nonfinal_apt_repo_generate.lock
 
+## Likely not used
 puppet7_archive_apt_repo_generate: |
   (
     flock --wait 600 670
@@ -129,6 +134,10 @@ puppet7_archive_apt_repo_generate: |
 #   /opt/tools/freight-nightlies/apt/bionic
 #
 # These handle that condition
+apt_repo_path: "/opt/repository/apt"
+apt_repo_staging_path: "/opt/tools/freight/apt"
+nonfinal_apt_repo_path: "/opt/repository-nightlies/apt"
+nonfinal_apt_repo_staging_path: "/opt/tools/freight-nightlies/apt"
 apt_repo_command: |
   (
     flock --wait 600 200
