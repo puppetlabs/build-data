@@ -45,6 +45,11 @@ freight_archive_path: "/opt/tools/freight-archives/apt"
 yum_archive_path: "/opt/release-archives-staging/yum"
 downloads_archive_path: "/opt/release-archives-staging/downloads"
 
+##
+## We did not complete the puppet7 work in time. We are planning on doing it in
+## the relatively near future.  Until then, however, seems best to comment this out.
+##
+
 # Prior to puppet7, apt repos contained all the puppet versions:
 #
 #  /opt/tools/freight/apt/<distro>/<puppet_version>
@@ -59,72 +64,72 @@ downloads_archive_path: "/opt/release-archives-staging/downloads"
 #
 # Example:
 #  /opt/tools/puppet7/freight/apt/bionic
-# 
+#
 # Freight then builds the repositories and deploys them to:
 #  /opt/repository/apt/puppet7
 #
 # Each major puppet release (puppet7, puppet8, puppet9, ...) requires a dedicated freight
 # configuration to manage the VARLIB and VARCACHE locations.
 
-puppet7_apt_repo_path: "/opt/repository/apt/puppet7"
-puppet7_apt_repo_staging_path: "/opt/tools/puppet7/freight/apt"
-puppet7_nonfinal_apt_repo_path: "/opt/repository-nightlies/apt/puppet7"
-puppet7_nonfinal_apt_repo_staging_path: "/opt/tools/puppet7/freight-nightlies/apt"
+# puppet7_apt_repo_path: "/opt/repository/apt/puppet7"
+# puppet7_apt_repo_staging_path: "/opt/tools/puppet7/freight/apt"
+# puppet7_nonfinal_apt_repo_path: "/opt/repository-nightlies/apt/puppet7"
+# puppet7_nonfinal_apt_repo_staging_path: "/opt/tools/puppet7/freight-nightlies/apt"
 
-puppet7_stable_apt_repo_generate: |
-  (
-    flock --wait 600 270
-    keychain -k mine;
-    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-    export GPG_TTY=$(tty);
-    freight_configuration=/etc/freight.conf.d/puppet7_stable.conf;
-    if printf -- %s "__APT_DISTROS__" | grep --quiet -- APT_DISTROS; then
-      sudo --preserve-env freight cache --conf=$freight_configuration &
-    else
-      for apt_distro in __APT_DISTROS__; do
-        sudo --preserve-env freight cache --conf=$freight_configuration apt/$apt_distro &
-      done
-    fi
-    wait
-    keychain -k mine;
-  ) 270>/var/lock/puppet7_stable_apt_repo_generate.lock
+# puppet7_stable_apt_repo_generate: |
+#   (
+#     flock --wait 600 270
+#     keychain -k mine;
+#     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+#     export GPG_TTY=$(tty);
+#     freight_configuration=/etc/freight.conf.d/puppet7_stable.conf;
+#     if printf -- %s "__APT_DISTROS__" | grep --quiet -- APT_DISTROS; then
+#       sudo --preserve-env freight cache --conf=$freight_configuration &
+#     else
+#       for apt_distro in __APT_DISTROS__; do
+#         sudo --preserve-env freight cache --conf=$freight_configuration apt/$apt_distro &
+#       done
+#     fi
+#     wait
+#     keychain -k mine;
+#   ) 270>/var/lock/puppet7_stable_apt_repo_generate.lock
 
-puppet7_nonfinal_apt_repo_generate: |
-  (
-    flock --wait 600 470
-    keychain -k mine;
-    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-    export GPG_TTY=$(tty);
-    freight_configuration=/etc/freight-nightly.conf.d/puppet7_nonfinal.conf;
-    if printf -- %s "__APT_DISTROS__" | grep --quiet -- APT_DISTROS; then
-      sudo --preserve-env freight cache --conf=$freight_configuration &
-    else
-      for apt_distro in __APT_DISTROS__; do
-        sudo --preserve-env freight cache --conf=$freight_configuration apt/$apt_distro &
-      done
-    fi
-    wait
-    keychain -k mine;
-  ) 470>/var/lock/puppet7_nonfinal_apt_repo_generate.lock
+# puppet7_nonfinal_apt_repo_generate: |
+#   (
+#     flock --wait 600 470
+#     keychain -k mine;
+#     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+#     export GPG_TTY=$(tty);
+#     freight_configuration=/etc/freight-nightly.conf.d/puppet7_nonfinal.conf;
+#     if printf -- %s "__APT_DISTROS__" | grep --quiet -- APT_DISTROS; then
+#       sudo --preserve-env freight cache --conf=$freight_configuration &
+#     else
+#       for apt_distro in __APT_DISTROS__; do
+#         sudo --preserve-env freight cache --conf=$freight_configuration apt/$apt_distro &
+#       done
+#     fi
+#     wait
+#     keychain -k mine;
+#   ) 470>/var/lock/puppet7_nonfinal_apt_repo_generate.lock
 
-## Likely not used
-puppet7_archive_apt_repo_generate: |
-  (
-    flock --wait 600 670
-    keychain -k mine;
-    eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
-    export GPG_TTY=$(tty);
-    freight_configuration=/etc/freight.conf.d/puppet7_archive.conf;
-    if printf -- %s "__APT_DISTROS__" | grep --quiet -- APT_DISTROS; then
-      sudo --preserve-env freight cache --conf=$freight_configuration &
-    else
-      for apt_distro in __APT_DISTROS__; do
-        sudo --preserve-env freight cache --conf=$freight_configuration apt/$apt_distro &
-      done
-    fi
-    wait
-    keychain -k mine;
-  ) 670>/var/lock/puppet7_archive_apt_repo_generate.lock
+# ## Likely not used
+# puppet7_archive_apt_repo_generate: |
+#   (
+#     flock --wait 600 670
+#     keychain -k mine;
+#     eval $(/usr/bin/keychain -q --agents gpg --eval __GPG_KEY__);
+#     export GPG_TTY=$(tty);
+#     freight_configuration=/etc/freight.conf.d/puppet7_archive.conf;
+#     if printf -- %s "__APT_DISTROS__" | grep --quiet -- APT_DISTROS; then
+#       sudo --preserve-env freight cache --conf=$freight_configuration &
+#     else
+#       for apt_distro in __APT_DISTROS__; do
+#         sudo --preserve-env freight cache --conf=$freight_configuration apt/$apt_distro &
+#       done
+#     fi
+#     wait
+#     keychain -k mine;
+#   ) 670>/var/lock/puppet7_archive_apt_repo_generate.lock
 
 
 # Prior to puppet7, apt repos were organized by debian codenames inside of
