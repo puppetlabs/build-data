@@ -23,7 +23,7 @@ builds_server: builds.delivery.puppetlabs.net
 metrics_url: http://metrics.delivery.puppetlabs.net/overview/metrics
 benchmark: false
 staging_server: weth.delivery.puppetlabs.net
-signing_server: composer-deb-prod-1.delivery.puppetlabs.net
+signing_server: mozart.delivery.puppetlabs.net
 yum_host: 'enterprise.delivery.puppetlabs.net'
 apt_host: 'enterprise.delivery.puppetlabs.net'
 tar_host: 'downloads.puppetlabs.com'
