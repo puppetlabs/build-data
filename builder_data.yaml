@@ -129,8 +129,6 @@ ips_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 internal_nexus_host: 'http://nexus.delivery.puppetlabs.net:8081/content/repositories/gems-internal'
 s3_ship: true
 foss_platforms:
-  - cisco-wrlinux-5-x86_64
-  - cisco-wrlinux-7-x86_64
   - debian-8-amd64
   - debian-8-i386
   - debian-9-amd64
