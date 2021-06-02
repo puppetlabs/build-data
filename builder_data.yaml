@@ -146,6 +146,7 @@ foss_platforms:
   - fedora-30-x86_64
   - fedora-31-x86_64
   - fedora-32-x86_64
+  - fedora-34-x86_64
   - osx-10.14-x86_64
   - osx-10.15-x86_64
   - osx-11-x86_64
