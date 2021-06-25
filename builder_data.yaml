@@ -133,6 +133,7 @@ foss_platforms:
   - debian-9-amd64
   - debian-9-i386
   - debian-10-amd64
+  - debian-11-amd64
   - el-5-i386
   - el-5-x86_64
   - el-6-i386
