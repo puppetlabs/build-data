@@ -128,14 +128,10 @@ msi_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 ips_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 s3_ship: true
 foss_platforms:
-  - debian-8-amd64
-  - debian-8-i386
   - debian-9-amd64
   - debian-9-i386
   - debian-10-amd64
   - debian-11-amd64
-  - el-5-i386
-  - el-5-x86_64
   - el-6-i386
   - el-6-x86_64
   - el-7-x86_64
@@ -144,11 +140,8 @@ foss_platforms:
   - el-8-x86_64
   - el-8-ppc64le
   - el-8-aarch64
-  - fedora-30-x86_64
-  - fedora-31-x86_64
   - fedora-32-x86_64
   - fedora-34-x86_64
-  - osx-10.14-x86_64
   - osx-10.15-x86_64
   - osx-11-arm64
   - osx-11-x86_64
@@ -157,8 +150,6 @@ foss_platforms:
   - sles-12-x86_64
   - sles-12-ppc64le
   - sles-15-x86_64
-  - ubuntu-14.04-amd64
-  - ubuntu-14.04-i386
   - ubuntu-16.04-amd64
   - ubuntu-16.04-i386
   - ubuntu-16.04-ppc64el
