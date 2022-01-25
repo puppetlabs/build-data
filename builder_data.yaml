@@ -1,7 +1,3 @@
 ---
-osx_signing_cert: "Developer ID Installer: PUPPET LABS, INC. (VKGLGN2B6Y)"
-osx_signing_keychain: "/Users/jenkins/Library/Keychains/signing.keychain"
-osx_signing_server: 'jenkins@osx-signer.delivery.puppetlabs.net'
-ips_signing_server: 'rama.delivery.puppetlabs.net'
 gem_host: 'weth.delivery.puppetlabs.net'
 gem_path: '/opt/downloads/facter'
