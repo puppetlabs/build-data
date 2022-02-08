@@ -3,5 +3,5 @@ gem_host: 'weth.delivery.puppetlabs.net'
 gem_path: '/opt/downloads/facter'
 
 ## RE-14577 hackery to get pipelines green
-# osx_signing_server: 'jenkins@osx-signer-prod-2.delivery.puppetlabs.net'
+osx_signing_server: 'jenkins@osx-signer-prod-2.delivery.puppetlabs.net'
 
