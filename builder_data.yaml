@@ -166,6 +166,12 @@ foss_platforms:
   - ubuntu-22.04-amd64
   - windows-2012-x86
   - windows-2012-x64
+gpg_legacy_hosts:
+  - mozart.delivery.puppetlabs.net
+  - weth.delivery.puppetlabs.net
+  - manasa.delivery.puppetlabs.net
+  - composer-rpm-prod-1.delivery.puppetlabs.net
+  - pl-build-tools.delivery.puppetlabs.net
 rsync_servers:
   - 'downloadserver-rsync-prod-1.ops.puppetlabs.net'
   - 'downloadserver-rsync-prod-2.ops.puppetlabs.net'
