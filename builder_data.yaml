@@ -134,8 +134,6 @@ ips_signing_ssh_key: '/home/jenkins/.ssh/id_signing'
 ips_signing_server: 'rama.delivery.puppetlabs.net'
 s3_ship: true
 foss_platforms:
-  - debian-9-amd64
-  - debian-9-i386
   - debian-10-amd64
   - debian-11-amd64
   - el-6-i386
