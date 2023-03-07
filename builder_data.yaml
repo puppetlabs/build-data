@@ -11,7 +11,7 @@ ips_host: ladybug.delivery.puppetlabs.net
 nuget_host: artifactory.delivery.puppetlabs.net
 nuget_repo_path: /artifactory/api/nuget/nuget-pl-build-tools
 svr4_path: /opt/build-tools/solaris
-p5p_path: /opt/build-tools/solaris
+p5p_path: /opt/build-tools
 ips_path: /export/repo-pl-build-tools
 apt_repo_path: /opt/tools/freight.build-tools/apt
 apt_repo_staging_path: /opt/tools/freight.build-tools/apt
