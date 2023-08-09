@@ -16,7 +16,7 @@ ips_path: /export/repo-pl-build-tools
 apt_repo_path: /opt/tools/freight.build-tools/apt
 apt_repo_staging_path: /opt/tools/freight.build-tools/apt
 yum_repo_path: /opt/build-tools/yum
-ips_repo: pl-build-tools
+ips_repo: puppetlabs.com
 apt_repo_name: ''
 yum_repo_name: ''
 apt_repo_command: |
