@@ -137,6 +137,7 @@ s3_ship: true
 foss_platforms:
   - debian-10-amd64
   - debian-11-amd64
+  - debian-11-aarch64
   - el-6-i386
   - el-6-x86_64
   - el-7-x86_64
