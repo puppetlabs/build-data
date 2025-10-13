@@ -143,6 +143,7 @@ foss_platforms:
   - el-9-aarch64
   - el-9-ppc64le
   - el-10-x86_64
+  - el-10-aarch64
   - fedora-36-x86_64
   - fedora-40-x86_64
   - fedora-41-x86_64
