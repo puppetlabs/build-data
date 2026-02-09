@@ -132,6 +132,7 @@ foss_platforms:
   - debian-11-aarch64
   - debian-12-amd64
   - debian-12-aarch64
+  - debian-13-amd64
   - debian-13-aarch64
   - el-6-i386
   - el-6-x86_64
