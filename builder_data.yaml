@@ -172,6 +172,7 @@ foss_platforms:
   - ubuntu-22.04-aarch64
   - ubuntu-24.04-amd64
   - ubuntu-24.04-aarch64
+  - ubuntu-26.04-aarch64
   - windows-2012-x86
   - windows-2012-x64
 gpg_legacy_hosts:
